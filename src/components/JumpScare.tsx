@@ -17,10 +17,54 @@ const JumpScare: React.FC<JumpScareProps> = ({ isActive, onComplete }) => {
       
       // Играем очень громкий звук шипения
       try {
-        const audio = new Audio("https://www.soundjay.com/human/sounds/hissing-1.mp3");
+        // Используем локальный файл или надежный хостинг для звуковых файлов
+        // Звук статического шипения, который с большей вероятностью будет работать в браузерах
+        const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3");
+        // Альтернативный вариант - белый шум
+        // const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/209/209-preview.mp3");
+        
         // Установка максимальной громкости
         audio.volume = 1.0;
-        audio.play().catch(e => console.error("Звук не может быть воспроизведен:", e));
+        
+        // Предварительная загрузка звука перед воспроизведением
+        audio.load();
+        
+        // Обработка ошибок воспроизведения с выводом конкретной причины
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log("Звук успешно воспроизводится");
+            })
+            .catch(error => {
+              console.error("Точная ошибка воспроизведения звука:", error.message);
+              
+              // Запасной вариант - генерация звука через AudioContext
+              try {
+                const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.type = 'sawtooth';
+                oscillator.frequency.setValueAtTime(100, audioContext.currentTime);
+                
+                gainNode.gain.setValueAtTime(1, audioContext.currentTime);
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.start();
+                
+                // Остановить через 3 секунды
+                setTimeout(() => {
+                  oscillator.stop();
+                }, 3000);
+              } catch (backupError) {
+                console.error("Запасной звук также не сработал:", backupError);
+              }
+            });
+        }
       } catch (e) {
         console.error("Ошибка воспроизведения звука:", e);
       }
