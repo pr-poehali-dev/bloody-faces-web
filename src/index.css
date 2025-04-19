@@ -4,89 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 100% 2%;
+    --foreground: 0 100% 88%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 73% 15%;
+    --card-foreground: 0 100% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 49% 8%;
+    --popover-foreground: 0 100% 88%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 83% 31%;
+    --primary-foreground: 0 9% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 73% 15%;
+    --secondary-foreground: 0 9% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 73% 15%;
+    --muted-foreground: 0 59% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 73% 15%;
+    --accent-foreground: 0 9% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 9% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 59% 22%;
+    --input: 0 59% 22%;
+    --ring: 0 73% 38%;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.3rem;
   }
 }
 
@@ -97,5 +43,115 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Creepster", system-ui, sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23420000' fill-opacity='0.12'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  @font-face {
+    font-family: 'Creepster';
+    src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+    font-display: swap;
+  }
+  
+  .horror-text {
+    font-family: 'Creepster', cursive;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #660000;
+  }
+  
+  .bloody::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #8a0303);
+    opacity: 0.8;
+    filter: blur(2px);
+    z-index: 10;
+  }
+  
+  .glitchy {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glitchy::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 2px;
+    width: 100%;
+    color: rgba(255, 0, 0, 0.8);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: noise-anim 3s infinite linear alternate-reverse;
+  }
+  
+  @keyframes noise-anim {
+    0% {
+      clip: rect(42px, 9999px, 5px, 0);
+    }
+    5% {
+      clip: rect(12px, 9999px, 92px, 0);
+    }
+    10% {
+      clip: rect(73px, 9999px, 9px, 0);
+    }
+    15% {
+      clip: rect(15px, 9999px, 36px, 0);
+    }
+    20% {
+      clip: rect(23px, 9999px, 87px, 0);
+    }
+    25% {
+      clip: rect(37px, 9999px, 67px, 0);
+    }
+    30% {
+      clip: rect(56px, 9999px, 18px, 0);
+    }
+    35% {
+      clip: rect(96px, 9999px, 72px, 0);
+    }
+    40% {
+      clip: rect(9px, 9999px, 42px, 0);
+    }
+    45% {
+      clip: rect(95px, 9999px, 64px, 0);
+    }
+    50% {
+      clip: rect(63px, 9999px, 27px, 0);
+    }
+    55% {
+      clip: rect(40px, 9999px, 88px, 0);
+    }
+    60% {
+      clip: rect(26px, 9999px, 13px, 0);
+    }
+    65% {
+      clip: rect(45px, 9999px, 25px, 0);
+    }
+    70% {
+      clip: rect(82px, 9999px, 50px, 0);
+    }
+    75% {
+      clip: rect(75px, 9999px, 30px, 0);
+    }
+    80% {
+      clip: rect(57px, 9999px, 98px, 0);
+    }
+    85% {
+      clip: rect(10px, 9999px, 64px, 0);
+    }
+    90% {
+      clip: rect(35px, 9999px, 23px, 0);
+    }
+    95% {
+      clip: rect(49px, 9999px, 84px, 0);
+    }
+    100% {
+      clip: rect(30px, 9999px, 27px, 0);
+    }
   }
 }
