@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import HorrorFace from "@/components/HorrorFace";
 import StrangeSymbols from "@/components/StrangeSymbols";
 import BloodDrip from "@/components/BloodDrip";
+import GlitchEffect from "@/components/GlitchEffect";
+import JumpScare from "@/components/JumpScare";
 
 const Index = () => {
   const [faces, setFaces] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showJumpScare, setShowJumpScare] = useState(false);
 
   useEffect(() => {
     // Имитация загрузки
@@ -34,6 +37,14 @@ const Index = () => {
     return () => clearInterval(randomizeInterval);
   }, []);
 
+  const handleScareClick = () => {
+    setShowJumpScare(true);
+  };
+
+  const handleScareComplete = () => {
+    setShowJumpScare(false);
+  };
+
   if (loading) {
     return (
       <div className="h-screen w-full flex flex-col items-center justify-center bg-horror-dark">
@@ -47,9 +58,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-horror-dark relative overflow-hidden">
+      {/* Скример */}
+      <JumpScare isActive={showJumpScare} onComplete={handleScareComplete} />
+      
       <BloodDrip position="top" intensity="high" />
       <BloodDrip position="left" intensity="medium" />
       <BloodDrip position="right" intensity="medium" />
+      <GlitchEffect intensity="medium" />
       
       <div className="container mx-auto pt-12 pb-20 px-4 relative z-10">
         <header className="text-center mb-12">
@@ -71,7 +86,11 @@ const Index = () => {
                 className="hover-sound relative group"
               >
                 <div className="absolute -inset-0.5 bg-red-600 opacity-30 rounded blur-sm group-hover:opacity-60 transition duration-500"></div>
-                <HorrorFace id={id} noise={0.3 + Math.random() * 0.4} />
+                <HorrorFace 
+                  id={id} 
+                  noise={0.3 + Math.random() * 0.4} 
+                  onScareClick={handleScareClick}
+                />
               </div>
             ))}
           </div>

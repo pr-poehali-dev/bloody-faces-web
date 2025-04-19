@@ -3,6 +3,7 @@ import React from "react";
 type HorrorFaceProps = {
   id: number;
   noise?: number;
+  onScareClick: () => void;
 };
 
 const randomSymbols = () => {
@@ -23,7 +24,7 @@ const getRandomFilter = (id: number) => {
   return filters[id % filters.length];
 };
 
-const HorrorFace: React.FC<HorrorFaceProps> = ({ id, noise = 0.5 }) => {
+const HorrorFace: React.FC<HorrorFaceProps> = ({ id, noise = 0.5, onScareClick }) => {
   const [glitchActive, setGlitchActive] = React.useState(false);
   const symbolText = React.useMemo(() => randomSymbols(), []);
   
@@ -49,8 +50,12 @@ const HorrorFace: React.FC<HorrorFaceProps> = ({ id, noise = 0.5 }) => {
     opacity: noise,
   };
 
+  const handleClick = () => {
+    onScareClick();
+  };
+
   return (
-    <div className="relative overflow-hidden m-4 group">
+    <div className="relative overflow-hidden m-4 group cursor-pointer" onClick={handleClick}>
       <div className={`relative z-10 flex flex-col items-center ${glitchActive ? 'animate-shake' : ''}`}>
         <div className="relative w-52 h-52 overflow-hidden rounded-sm border-4 border-horror-gore bloody">
           <div 
