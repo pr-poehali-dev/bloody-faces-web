@@ -17,11 +17,8 @@ const JumpScare: React.FC<JumpScareProps> = ({ isActive, onComplete }) => {
       
       // Играем очень громкий звук шипения
       try {
-        // Используем локальный файл или надежный хостинг для звуковых файлов
-        // Звук статического шипения, который с большей вероятностью будет работать в браузерах
+        // Звук статического шипения
         const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3");
-        // Альтернативный вариант - белый шум
-        // const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/209/209-preview.mp3");
         
         // Установка максимальной громкости
         audio.volume = 1.0;
@@ -83,9 +80,10 @@ const JumpScare: React.FC<JumpScareProps> = ({ isActive, onComplete }) => {
     }
   }, [isActive, onComplete]);
   
-  // Генерация случайных жутких символов
+  // Генерация случайных жутких символов (заменены на более абстрактные и пугающие)
   const generateRandomSymbols = (count: number) => {
-    const symbols = "☠︎⚰︎⚱︎☢︎☣︎⚔︎⚒︎♰♱⛧⛥⛤∞⍾⌬⎔⎕⚝✞✟❍❖❇❈";
+    // Используем более абстрактные пугающие символы вместо эмодзи
+    const symbols = "ⱧⱠȺȾŁɆⱧⱵⱵⱷ⸸⸎†‡§¶⍭⍯⍰⎊⎋⁂‰≠∆∞∟∫≈Ω";
     let result = "";
     for (let i = 0; i < count; i++) {
       result += symbols.charAt(Math.floor(Math.random() * symbols.length));
@@ -104,12 +102,12 @@ const JumpScare: React.FC<JumpScareProps> = ({ isActive, onComplete }) => {
       {/* Кровавый фон */}
       <div className="absolute inset-0 bg-horror-gore opacity-20 animate-pulse"></div>
       
-      {/* Пульсирующие кровавые символы по всему экрану */}
+      {/* Пульсирующие жуткие символы по всему экрану */}
       <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 15 }).map((_, i) => (
+        {Array.from({ length: 30 }).map((_, i) => (
           <div 
             key={i}
-            className="absolute text-6xl text-horror-blood opacity-70 animate-pulse"
+            className="absolute text-6xl md:text-7xl text-horror-blood opacity-70 animate-pulse"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -123,50 +121,31 @@ const JumpScare: React.FC<JumpScareProps> = ({ isActive, onComplete }) => {
         ))}
       </div>
       
-      {/* Главный элемент скримера - кровавые глаза */}
+      {/* Центральный элемент скримера - большие жуткие символы */}
       <div className="relative w-full max-h-screen flex items-center justify-center animate-shake overflow-hidden">
-        
-        {/* Глаза */}
-        <div className="flex flex-row items-center justify-center space-x-20 sm:space-x-32 md:space-x-48 lg:space-x-64">
-          {/* Левый глаз */}
-          <div className="relative">
-            <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-full bg-black border-4 border-horror-blood animate-pulse" 
-                 style={{ boxShadow: "0 0 30px 10px rgba(139, 0, 0, 0.8)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-horror-blood animate-pulse"></div>
-                <div className="absolute w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-black"></div>
-              </div>
-              
-              {/* Кровавые потеки из глаза */}
-              <div className="absolute -bottom-20 w-full">
-                <div className="w-full h-24 bg-horror-blood" 
-                     style={{ clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0% 100%)" }}></div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Правый глаз */}
-          <div className="relative">
-            <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-full bg-black border-4 border-horror-blood animate-pulse" 
-                 style={{ boxShadow: "0 0 30px 10px rgba(139, 0, 0, 0.8)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-horror-blood animate-pulse"></div>
-                <div className="absolute w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-black"></div>
-              </div>
-              
-              {/* Кровавые потеки из глаза */}
-              <div className="absolute -bottom-20 w-full">
-                <div className="w-full h-24 bg-horror-blood" 
-                     style={{ clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0% 100%)" }}></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Жуткие символы между глазами */}
-        <div className="absolute text-8xl md:text-9xl font-bold text-horror-blood opacity-90 animate-pulse glitchy horror-text" 
+        {/* Центральные крупные жуткие символы */}
+        <div className="text-9xl md:text-[12rem] lg:text-[16rem] font-bold text-horror-blood opacity-90 animate-pulse glitchy horror-text" 
              data-text={generateRandomSymbols(3)}>
           {generateRandomSymbols(3)}
+        </div>
+        
+        {/* Дополнительные пульсирующие символы вокруг основных */}
+        <div className="absolute text-7xl md:text-8xl font-bold text-horror-blood/50 animate-pulse" 
+             style={{
+               top: "30%",
+               left: "25%",
+               animationDelay: "0.3s"
+             }}>
+          {generateRandomSymbols(2)}
+        </div>
+        
+        <div className="absolute text-7xl md:text-8xl font-bold text-horror-blood/60 animate-pulse" 
+             style={{
+               bottom: "35%",
+               right: "20%",
+               animationDelay: "0.5s"
+             }}>
+          {generateRandomSymbols(2)}
         </div>
       </div>
       
